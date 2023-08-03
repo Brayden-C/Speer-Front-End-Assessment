@@ -1,15 +1,24 @@
+/*
+Author: Brayden Campbell
+Date: 2023-08-03
+*/
+
+//This file is used for the creation and managment of page tabs. By having a tab manager creating in this way, I am able to 
+//have seamless and animated transitions between tabs, and it allows all of the pages to be running congruently
+
 import * as React from 'react';
 import PropTypes from 'prop-types';
-import Tabs from '@mui/material/Tabs';
-import Tab from '@mui/material/Tab';
-import Typography from '@mui/material/Typography';
-import Box from '@mui/material/Box';
+
+import {Tabs, Tab, Typography, Box} from '@mui/material'
+
 import SwipeableViews from 'react-swipeable-views-react-18-fix/lib/SwipeableViews.js';
 
 import Inbox from './Inbox.jsx';
 import AllCalls from './AllCalls.jsx'
 import Archives from './Archives.jsx';
 
+
+//creating a template for the tab panel
 function CustomTabPanel(props) {
   const { children, value, index, ...other } = props;
 
@@ -61,15 +70,16 @@ export default function TabPanel() {
           value={value}
           onChange={handleChange}
           aria-label="basic tabs example"
-          textColor="primary" // Add this line to change the text color of the tabs
-          indicatorColor="primary" // Add this line to change the indicator (highlight) color of the selected tab
-          centered // Add this line to center the tabs
+          textColor="primary"
+          indicatorColor="primary"
+          centered 
         >
           <Tab label="Inbox" {...a11yProps(0)} />
           <Tab label="All Calls" {...a11yProps(1)} />
           <Tab label="Archive" {...a11yProps(2)} />
         </Tabs>
       </Box>
+      {/* SwipeableViews is used here to facilitate an animation when switching between tabs. It also allows the user to drag the screen to switch between tabs */}
       <SwipeableViews
         index={value}
         onChangeIndex={handleSwipeChangeIndex}
