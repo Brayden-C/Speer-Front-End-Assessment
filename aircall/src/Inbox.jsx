@@ -67,7 +67,7 @@ function Inbox() {
 
   const onArchiveClick = async () =>{
     data.map(call =>{
-      if(call.to === selectedItem.to && call.direction !== 'outbound'){
+      if(call.to === selectedItem.to && call.from !== undefined && call.direction !== 'outbound'){
         archivedCalls.push(call);
       }
     })

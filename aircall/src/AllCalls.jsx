@@ -74,7 +74,7 @@ function AllCalls() {
 
   const onArchiveClick = async () =>{
     data.map(call =>{
-      if(call.to !== undefined && call.to === selectedItem.to && call.direction == selectedItem.direction){
+      if(call.from !== undefined && call.to !== undefined && call.to === selectedItem.to && call.direction == selectedItem.direction){
         archivedCalls.push(call);
       }
     })
